@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Minimal Demo for Next x Craft CMS
+
+This starter is built using the [Craft Query API](https://plugins.craftcms.com/query-api?craft5).
+You don’t need any knowledge of GraphQL, just familiarity with Craft CMS’s query builder is enough to get started.
+
+## Requirements
+
+- Craft CMS + Query API successfully installed and running
+- A Craft CMS section with at least one entry type (I used sections called `home` and `news` with entry types `home`)
+
+## Documentation
+
+For more information about this codebase, see the [Quick Start Guide](https://samuelreichor/libraries/query-api-next/get-started/quick-start) 
+for the [Query API Next SDK](https://samuelreichor.at/libraries/query-api-next).
 
 ## Getting Started
-
-First, run the development server:
-
+Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone  
+````
+
+ Navigate to the project directory and install the dependencies:
+```bash
+cd query-api-next-demo && npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Configure baseUrl and authToken for the Query API in `src/libs/query-api.ts`:
+```ts
+  // src/libs/query-api.ts
+  craftInit({
+    baseUrl: 'https://backend-craftcms.ddev.site:8443', // Replace with your Craft CMS URL
+    authToken: 'Bearer tyE9LViYm0HvcVbUErN1wwIa3qyeby1K', // Replace with your Query API token
+  })
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+These are the default next scripts available in this project:
 
-## Learn More
+- `npm run dev`: start the development server
+- `npm run build`: build the project for production
+- `npm run preview`: preview the production build
 
-To learn more about Next.js, take a look at the following resources:
+## Further Resources
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Craft Query API](https://samuelreichor.at/libraries/craft-query-api): The Craft CMS Plugin that powers this great stuff.
+- [Next SDK](https://samuelreichor.at/libraries/query-api-next): The package used to get the query builder in Next.
+- [React SDK](https://samuelreichor.at/libraries/query-api-react): The package used to get the query builder in React.
+- [JS SDK](https://samuelreichor.at/libraries/js-craftcms-api): `@query-api/nuxt` is built on the `@query-api/js`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Support
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you encounter bugs or have feature requests, [please submit an issue](/../../issues/new). Your feedback helps improve the starter!
